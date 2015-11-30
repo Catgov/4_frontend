@@ -1,0 +1,72 @@
+<%= render layout: 'base_page', locals: {
+  title: @publication.title,
+  publication: @publication,
+  edition: @edition,
+  json_link: publication_path(@publication.slug, edition: @edition, format: :json, all: true),
+} do %>
+  <section class="intro">
+    <div class="get-started-intro">
+
+    <%= raw @publication.introduction %>
+
+    </div>
+  </section>
+
+  <% if @interaction_details['local_interaction'] %>
+
+    <p id="get-started" class="get-started group">
+       <a href="<%= @interaction_details['local_interaction']['url'] %>" rel="external" class="button" role="button">
+         Start now
+       </a>
+       <span class="destination"> on <%= @interaction_details['local_authority']['name'] %></span>
+    </p>
+
+  <% elsif @location_error && @location_error.no_location_interaction? %>
+
+    <div class="application-notice help-notice">
+      <p><%= t(@location_error.message, @location_error.message_args) %></p>
+    </div>
+
+  <% else %>
+    <%= render :partial => 'location_form', :locals => {:format => 'service'} %>
+  <% end %>
+
+  <% if @interaction_details['local_authority'] %>
+    <% authority = @interaction_details['local_authority'] %>
+    <div class="contact vcard">
+      <p><%= link_to '(change location)', publication_path(@publication.slug) %></p>
+
+      <% unless @interaction_details['local_interaction'] %>
+        <% if authority['contact_address'] %>
+          <div class="adr"><%= simple_format authority['contact_address'].join("\n") %></div>
+        <% end %>
+        <% if authority['contact_phone'].present? %>
+          <p class="tel"><strong>Telephone:</strong> <span class="value"><%= authority['contact_phone'] %></span></p>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <section class="more">
+
+  <% if @publication.need_to_know.present? %>
+    <h2>What you need to know</h2>
+    <%= raw @publication.need_to_know %>
+  <% end %>
+    <div class="more">
+      <%= raw @publication.more_information %>
+    </div>
+  </section>
+<% end %>
+
+<% if @location_error && @location_error.postcode_error%>
+  <script type="text/javascript">
+      GOVUK.analytics.trackEvent(
+        "userAlerts:LocalTransaction",
+        "postcodeErrorShown:<%= @location_error.postcode_error %>",
+        {
+          label: "<%= t(@location_error.message, @location_error.message_args) %>"
+        }
+      );
+  </script>
+<% end %>

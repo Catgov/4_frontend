@@ -1,0 +1,41 @@
+en:
+  common:
+    last_updated: "Last updated"
+  formats:
+    answer:
+      name: "Quick answer"
+    guide:
+      name: "Guide"
+      part: "Part"
+      printer_friendly_page: "Print entire guide"
+      at_beginning_of_guide: "You are at the beginning of this guide"
+      at_end_of_guide: "You have reached the end of this guide"
+      navigate_to_previous_part: "Navigate to previous part"
+      navigate_to_next_part: "Navigate to next part"
+      notes: "Notes"
+    programme:
+      name: "Benefits & credits"
+      printer_friendly_page: "Print entire guide"
+    transaction:
+      name: "Service"
+      start_now: "Start now"
+      "on": !str "on"
+      before_you_start: "Before you start"
+      what_you_need_to_know: "What you need to know"
+      other_ways_to_apply: "Other ways to apply"
+      jobsearch:
+        job_title: "Job title"
+        town_place_postcode: "Postcode, town or place"
+        skills: "Skills (optional)"
+        search: "Search"
+    local_transaction:
+      invalid_postcode: "Please enter a valid full UK postcode."
+      no_local_authority_html: "Sorry, we can't find the local council for your postcode. Try using <a href='/find-your-local-council'>the local council directory</a>."
+      no_local_interaction_html: "We don't have a direct link to this service from %{local_authority_name}"
+      no_local_interaction_with_link_html: "We don't have a direct link to this service from %{local_authority_name}, but you could try the <a href=%{contact_url} rel='external'>%{local_authority_name} website</a>."
+  travel_advice:
+    alert_status:
+      avoid_all_but_essential_travel_to_parts: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> advise against all but essential travel to parts of the country.
+      avoid_all_travel_to_parts: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> advise against all travel to parts of the country.
+      avoid_all_but_essential_travel_to_whole_country: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> advise against all but essential travel to the whole country.
+      avoid_all_travel_to_whole_country: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> advise against all travel to the whole country.

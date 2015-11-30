@@ -1,0 +1,239 @@
+<% content_for :extra_headers do %>
+<link rel="canonical" href="<%= root_path %>" />
+<meta name="description" content="GOV.UK - The place to find government services and information - Simpler, clearer, faster" />
+<% end %>
+<% content_for :title, "Welcome to GOV.UK" %>
+<% content_for :body_classes, "homepage" %>
+
+<%= render :partial => "campaign_notification" %>
+<main id="content" class="root-index" role="main">
+  <header class="homepage-top">
+    <div class="homepage-top-inner">
+
+      <div class="welcome-block">
+        <div class="inner-block floated-children">
+          <div class="welcome-text">
+            <div class="floated-inner-block">
+              <h1>Welcome to GOV.UK</h1>
+              <p>The best place to find government services and information</p>
+              <p class="simpler">Simpler, clearer, faster</p>
+
+              <form id="header-search" class="site-search" action="/search" method="get" role="search">
+                <div class="header-search-content">
+                  <label for="search-main">Search GOV.UK</label>
+                  <input type="search" name="q" id="search-main" title="Search" class="js-search-focus"><input class="submit" type="submit" value="Search">
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="content-links">
+            <div class="floated-inner-block content-links-inner">
+              <h2>Popular on GOV.UK</h2>
+              <ul>
+                <li><a href="/jobsearch">Universal Jobmatch job search</a></li>
+                <li><a href="/vehicle-tax">Renew vehicle tax</a></li>
+                <li><a href="/student-finance-register-login">Log in to student finance</a></li>
+                <li><a href="/book-theory-test">Book your theory test</a></li>
+                <li><a href="/employment-support-allowance">Employment and Support Allowance</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="homepage" class="homepage-content">
+    <div class="homepage-content-inner">
+
+      <section class="services-block" aria-labelledby="services-and-information-label" id="services-and-information">
+        <div class="inner-block floated-children">
+          <div class="two-column-heading">
+            <h2 id="services-and-information-label" class="visuallyhidden">Services and information</h2>
+          </div>
+          <div class="categories-lists">
+            <ol class="categories-list">
+              <li>
+                <h3><a href="/browse/benefits">Benefits</a></h3>
+                <p>Includes tax credits, eligibility and appeals</p>
+              </li>
+              <li>
+                <h3><a href="/browse/births-deaths-marriages">Births, deaths, marriages and care</a></h3>
+                <p>Parenting, civil partnerships, divorce and Lasting Power of Attorney</p>
+              </li>
+              <li>
+                <h3><a href="/browse/business">Business and self-employed</a></h3>
+                <p>Tools and guidance for businesses</p>
+              </li>
+              <li>
+                <h3><a href="/browse/childcare-parenting">Childcare and parenting</a></h3>
+                <p>Includes giving birth, fostering, adopting, benefits for children, childcare and schools</p>
+              </li>
+              <li>
+                <h3><a href="/browse/citizenship">Citizenship and living in the UK</a></h3>
+                <p>Voting, community participation, life in the UK, international projects</p>
+              </li>
+              <li>
+                <h3><a href="/browse/justice">Crime, justice and the law</a></h3>
+                <p>Legal processes, courts and the police</p>
+              </li>
+            </ol>
+            <ol class="categories-list">
+              <li>
+                <h3><a href="/browse/disabilities">Disabled people</a></h3>
+                <p>Includes carers, your rights, benefits and the Equality Act</p>
+              </li>
+              <li>
+                <h3><a href="/browse/driving">Driving and transport</a></h3>
+                <p>Includes vehicle tax, MOT and driving licences</p>
+              </li>
+              <li>
+                <h3><a href="/browse/education">Education and learning</a></h3>
+                <p>Includes student loans, admissions and apprenticeships</p>
+              </li>
+              <li>
+                <h3><a href="/browse/employing-people">Employing people</a></h3>
+                <p>Includes pay, contracts and hiring</p>
+              </li>
+              <li>
+                <h3><a href="/browse/environment-countryside">Environment and countryside</a></h3>
+                <p>Includes flooding, recycling and wildlife</p>
+              </li>
+              <li>
+                <h3><a href="/browse/housing-local-services">Housing and local services</a></h3>
+                <p>Owning or renting and council services</p>
+              </li>
+            </ol>
+            <ol class="categories-list">
+              <li>
+                <h3><a href="/browse/tax">Money and tax</a></h3>
+                <p>Includes debt and Self Assessment</p>
+              </li>
+              <li>
+                <h3><a href="/browse/abroad">Passports, travel and living abroad</a></h3>
+                <p>Includes renewing passports and travel advice by country</p>
+              </li>
+              <li>
+                <h3><a href="/browse/visas-immigration">Visas and immigration</a></h3>
+                <p>Visas, asylum and sponsorship</p>
+              </li>
+              <li>
+                <h3><a href="/browse/working">Working, jobs and pensions</a></h3>
+                <p>Includes holidays and finding a job</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <hr id="departments-and-policy" aria-hidden="true" />
+
+      <section class="departments-and-policy" aria-labelledby="departments-and-policy-label">
+        <div class="inner-block floated-children">
+            <h2 id="departments-and-policy-label" class="visuallyhidden">Departments and&nbsp;policy</h2>
+          <div class="large-numbers">
+            <ol>
+              <li><a href="/government/organisations"><strong>24</strong> Ministerial departments</a></li>
+              <li><a href="/government/organisations"><strong>331</strong> Other agencies and public&nbsp;bodies</a></li>
+            </ol>
+          </div>
+          <div class="departments-intro">
+            <div class="floated-inner-block">
+              <p>
+                The websites of all <a href="/government/organisations">government
+                departments</a> and many other agencies and public bodies have
+                been merged into GOV.UK.
+              </p>
+              <p>
+                Here you can see all <a href="/government/policies">policies</a>,
+                <a href="/government/announcements">announcements</a>,
+                <a href="/government/publications">publications</a>,
+                <a href="/government/publications?publication_filter_option=statistics">statistics</a>
+                and <a href="/government/publications?publication_filter_option=consultations">consultations</a>.
+              </p>
+              <p>
+                Find out <a href="/performance">how government services are performing</a>
+                and how satisfied users are.
+              </p>
+            </div>
+          </div>
+
+          <div class="departments-promo-sections">
+            <div class="promo-image">
+              <div class="promo-content">
+                <a href="/government/topical-events/autumn-statement-and-spending-review-2015"><%= image_tag 'homepage/autumn-statement-2015.jpg', alt: 'Autumn Statement and Spending Review 2015' %></a>
+                <h3>Autumn Statement and Spending Review 2015</h3>
+                <p>
+                  Read the government’s <a href="/government/topical-events/autumn-statement-and-spending-review-2015">plans for the economy and departmental budgets</a>.
+                </p>
+              </div>
+            </div>
+            <div class="promo-image">
+              <div class="promo-content">
+                <a href="/government/news/driving-licence-changes"><%= image_tag 'homepage/counterpart-driving-licence.jpg', alt: 'Driving licence counterpart' %></a>
+                <h3>Driving licence counterpart</h3>
+                <p>
+                  From 8 June 2015 you no longer need the <a href="/government/news/driving-licence-changes">paper counterpart</a> to your photocard driving licence.
+                </p>
+              </div>
+            </div>
+            <div class="promo-image">
+              <div class="promo-content">
+                <a href="/government/news/right-to-rent-checks-what-they-mean-for-you"><%= image_tag 'homepage/right-to-rent.jpg', alt: 'Right to Rent' %></a>
+                <h3>Right to Rent</h3>
+                <p>
+                  If you're a landlord, you must <a href="/government/news/right-to-rent-checks-what-they-mean-for-you">check your tenants</a> are allowed to live in the UK legally.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr id="more-on-govuk" aria-hidden="true" />
+
+      <section class="popular-content" aria-labelledby="more-on-govuk-label">
+        <div class="inner-block floated-children">
+          <div class="single-column-heading">
+            <h2 id="more-on-govuk-label">More on GOV.UK</h2>
+          </div>
+          <div class="most-active">
+            <div class="floated-inner-block">
+              <h3>Most active</h3>
+              <ul class="most-active-content">
+                <li><a href="/jobsearch">Universal Jobmatch job search</a></li>
+                <li><a href="/student-finance-register-login">Log in to student finance</a></li>
+                <li><a href="/passport-fees">Passport fees</a></li>
+                <li><a href="/jobseekers-allowance">Jobseeker's Allowance</a></li>
+                <li><a href="/council-tax-bands">Council Tax bands</a></li>
+                <li><a href="/running-a-limited-company">Running a limited company</a></li>
+                <li><a href="/book-a-driving-theory-test">Driving theory test</a></li>
+                <li><a href="/calculate-vehicle-tax-rates">Vehicle tax rates</a></li>
+                <li><a href="/vehicle-tax">Renew vehicle tax</a></li>
+                <li><a href="/vat-rates">VAT rates</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="promo-image" id="promo">
+            <div class="promo-content">
+              <h3 class="promo-text-cta">
+                <a href="/bank-holidays">
+                <span class="main-text">UK bank holidays</span>
+                </a>
+              </h3>
+              <p>Check the dates for <a href="/bank-holidays">bank holidays</a> in England, Wales, Scotland and Northern Ireland.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+<% # This is for JS/non-JS tracking purposes %>
+<%= image_tag "homepage/no-cache/base-js.gif", :alt => "", :role => "presentation", :style => "position: absolute; left: -9999em; height: 0px; width: 0px;" %>
+<script type="text/javascript">
+  (function(){var a=document.createElement("img");a.src="<%= image_path "homepage/no-cache/with-js.gif" %>";a.alt="";a.role="presentation";a.style.position="absolute";a.style.left="-9999em";a.style.height="0px";a.style.width="0px";document.getElementById("wrapper").appendChild(a)})();
+</script>
+<noscript>
+<%= image_tag "homepage/no-cache/without-js.gif", :alt => "", :role => "presentation", :style => "position: absolute; left: -9999em; height: 0px; width: 0px;" %>
+</noscript>

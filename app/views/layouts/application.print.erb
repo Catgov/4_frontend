@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title><% if @publication %><%= page_title(@publication) %><% else %><%= yield :title %><% end %></title>
+  <% if @publication.overview.present? %>
+    <meta name="description" content="<%= @publication.overview %>">
+  <% end %>
+
+  <%= yield :extra_headers %>
+</head>
+<body>
+  <div id="wrapper" class="<%= wrapper_class(@publication) %>">
+    <main role="main">
+      <%= yield %>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+.bundle
+autotest
+.autotest
+db/*.sqlite3
+log/*.log
+tmp/
+coverage
+test/reports
+/public/autocomplete
+.DS_Store
+public/frontend
+.idea
+.sass-cache
+app/assets/javascripts/templates.js

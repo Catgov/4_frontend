@@ -1,0 +1,626 @@
+// Remove search from the top bar as we have one in the content.
+body.homepage {
+  #global-header-bar {
+    display: none;
+  }
+  #wrapper,
+  #content {
+    margin: 0;
+    width: auto; // needed for IE overides
+    max-width: 100%;
+  }
+}
+
+@mixin campaign-styles($background, $foreground) {
+  background: $background;
+
+  h1,
+  p,
+  a {
+    color: $foreground;
+  }
+}
+
+#campaign {
+  &.black {
+    @include campaign-styles($black, $white);
+  }
+
+  &.red {
+    @include campaign-styles($red, $white);
+  }
+
+  &.green {
+    @include campaign-styles($turquoise, $white);
+  }
+
+  border: 5px solid $white;
+  border-width: 5px 0;
+
+  .campaign-inner {
+    @extend %contain-floats;
+
+    position: relative;
+    overflow: hidden;
+    // this is 1020 from .homepage-top-inner
+    // - the total padding and margin left/right
+    max-width: 960px;
+    margin: 15px auto;
+
+    @include media(mobile) {
+      padding: 0 15px; // this is to compensate for the more complex layout in welcome-block
+    }
+
+    @include ie-lte(8) {
+      width: 960px;
+    }
+
+    h1 {
+      @include bold-48;
+    }
+
+    p {
+      @include media(tablet) {
+        width: 66.66%; // this is the same as .welcome-text
+        float: left;
+      }
+    }
+
+    a {
+      // this is the same as .content-links
+      @include media(tablet) {
+        position: absolute;
+        bottom: 1em;
+        left: 66.66%;
+        width: 33.33%;
+        padding: 0 10px;
+        display: block;
+      }
+      @include core-19;
+    }
+  }
+}
+
+.root-index {
+  // Generic objects for the homepage
+  .inner-block {
+    @include media(tablet){
+      margin: 0 30px;
+      &.floated-children {
+        margin: 0 15px;
+      }
+    }
+  }
+
+  .floated-inner-block {
+    margin: 0 15px;
+  }
+
+  section {
+    clear: both;
+  }
+
+  hr {
+    margin: 30px 15px 15px;
+    clear: both;
+    border: 5px solid $black;
+    border-width: 5px 0 0;
+
+    @include media(tablet){
+      margin: 60px 30px 30px;
+    }
+  }
+
+  .single-column-heading {
+    @include media(desktop){
+      width: 33.33%;
+      float: left;
+    }
+    h2 {
+      @include core-36;
+      font-weight: bold;
+      padding: 0 15px;
+      margin: 0 0 10px;
+    }
+  }
+
+  .promo-image {
+    margin-right: 0;
+    margin-bottom: 30px;
+    min-height: 0;
+    position: static;
+
+    @include media(tablet){
+      width: 33.33%;
+      float: left;
+    }
+    .promo-content {
+      padding: 0 15px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 15px;
+    }
+    h3 {
+      @include core-24;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+    p {
+      @include core-16;
+      margin: 0;
+    }
+
+    .promo-text-cta a {
+      display: block;
+      margin-bottom: 15px;
+      padding: 1.5em .75em 2em;
+
+      color: $white;
+      background: $homepage-top-colour;
+      text-align: center;
+      text-decoration: none;
+
+      @include bold-19;
+
+      .main-text{
+        display: block;
+        margin-top: 15px;
+        @include bold-36;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+
+  .homepage-top {
+    @extend %contain-floats;
+    text-align: center;
+    background: $homepage-top-colour;
+    color: $white;
+
+    .homepage-top-inner {
+      position: relative;
+      overflow: hidden;
+      max-width: 1020px;
+      margin: 0 auto;
+      text-align: left;
+      @include ie-lte(8){
+        width: 1020px;
+      }
+    }
+  }
+
+  .welcome-block {
+    .welcome-text {
+      @include media(tablet){
+        width: 66.66%;
+      }
+    }
+    .content-links {
+      @include media(tablet){
+        position: absolute;
+        top: 0;
+        left: 66%;
+        width: 33.33%;
+      }
+    }
+
+    h1 {
+      @include core-48;
+      font-weight: bold;
+      padding: 25px 0 15px;
+    }
+    p {
+      margin: 0;
+
+      &.simpler {
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+    }
+    form#header-search {
+      padding-bottom: 30px;
+
+      .header-search-content {
+        @extend %contain-floats;
+        position: relative;
+        background: #fff;
+      }
+      label {
+        float: left;
+        height: 40px;
+        line-height: 40px;
+        text-indent: 15px;
+        overflow: hidden;
+        display: block;
+        margin-right: 10px;
+        color: $secondary-text-colour;
+
+        .js-enabled & {
+          float: none;
+          position: absolute;
+          left: 0;
+          top: 1px;
+          z-index: 1;
+          width: 100%;
+          margin-right: 0;
+        }
+      }
+      input {
+        @include box-sizing(border-box);
+        float: left;
+        width: 50%;
+        min-width: 0;
+        display: block;
+        margin: 0;
+        border: 0;
+        height: 40px;
+        padding: 6px 0;
+        @include ie-lte(7){
+          height: 28px;
+        }
+        @include appearance(none);
+      }
+
+      input#search-main {
+        @include core-19($line-height: (28/19), $line-height-640: (28/16));
+        position: relative;
+        padding: 6px;
+        z-index: 3;
+        background: transparent;
+
+        &.focus,
+        &:focus {
+          background: #fff;
+        }
+
+        @include ie-lte(7){
+          padding-left: 0;
+        }
+        .js-enabled & {
+          width: 86%;
+          @include calc(width, "100% - 37px");
+        }
+      }
+
+      input.submit {
+        position: absolute;
+        z-index: 4;
+        right: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+
+        border: 1px solid $black;
+        border-width: 0 0 0 1px;
+        @include ie-lte(7){
+          border-width: 1px;
+        }
+        border-left-color: #222;
+        @include border-radius(0);
+
+        overflow: hidden;
+        text-indent: -5000px;
+        cursor: pointer;
+
+        color: $white;
+        background: $black image-url("homepage/search-button.png") no-repeat 2px 50%;
+
+        @include device-pixel-ratio() {
+          background-size: 52.5px 35px;
+          background-position: 115% 50%;
+        }
+
+        @include ie-lte(7) {
+          background-image: none;
+          width: auto;
+        }
+
+        &:hover {
+          background-color: lighten($black, 5%);
+        }
+      }
+      &.js-visible { display: block; }
+    }
+    .content-links-inner {
+      padding-bottom: 20px;
+
+      @include media(tablet){
+        background: $black;
+        padding: 15px 20px 5px;
+        margin-top: 30px;
+        min-height: 20em;
+        @include ie-lte(7){
+          margin-bottom: 0;
+        }
+        @include ie(6) {
+          height: 20em;
+        }
+      }
+
+      h2 {
+        @include core-14;
+        margin: 0;
+        @include media($min-width: 1010px){
+          margin: 5px 0 0;
+        }
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+        @include media($min-width: 1010px){
+          margin: 10px 0 0;
+        }
+      }
+      li {
+        @include bold-16;
+        list-style: none;
+        margin: 5px 0;
+      }
+      a {
+        &:link,
+        &:visited {
+          color: $white;
+        }
+
+        &:active,
+        &:hover {
+          color: darken($white, 20%);
+        }
+
+        &:focus {
+          // Manually fix the most embarassing :focus contast issue, needs a wider fix
+          color: $black;
+        }
+      }
+    }
+  }
+  .homepage-content {
+    @extend %contain-floats;
+    text-align: center;
+
+    .homepage-content-inner {
+      max-width: 1020px;
+      margin: 0 auto;
+      text-align: left;
+      @include ie-lte(8){
+        width: 1020px;
+      }
+    }
+  }
+  .services-block {
+    padding-top: 15px;
+    @include media(tablet){
+      padding-top: 30px;
+    }
+
+    .two-column-heading {
+      @include media(tablet){
+        width: 66.66%;
+        float: left;
+      }
+      h2 {
+        @include core-36;
+        font-weight: bold;
+        padding: 0 15px;
+        margin: 20px 0 0;
+        @include media(tablet){
+          margin: 15px 0 25px;
+        }
+      }
+    }
+    .replaces {
+      @extend %contain-floats;
+
+      @include media(tablet){
+        padding-top: 10px;
+        width: 33.33%;
+        float: right;
+      }
+      p {
+        @include core-14;
+        padding: 0 15px;
+        margin: 0;
+        color: $secondary-text-colour;
+      }
+      ul {
+        margin: 0;
+        padding: 0 15px;
+      }
+      li {
+        line-height: 30px;
+        display: block;
+        float: left;
+        padding-right: 10px;
+        img {
+          vertical-align: bottom;
+        }
+      }
+    }
+    .categories-lists {
+      @extend %contain-floats;
+      clear: both;
+    }
+    .categories-list {
+      margin: 0;
+      padding: 10px 0 0;
+      @include media(tablet){
+        float: left;
+        width: $one-third;
+      }
+
+      li {
+        margin: 0 0 15px;
+        padding: 0;
+        list-style: none;
+
+        h3, p {
+          margin: 0;
+          padding: 0 15px;
+        }
+        h3 {
+          @include core-19;
+          font-weight: bold;
+        }
+        p {
+          @include core-16;
+          min-height: 40px;
+        }
+      }
+    }
+  }
+
+  .departments-and-policy {
+    .departments-intro {
+      @include media(desktop){
+        width: 66.66%;
+        float: left;
+      }
+      p {
+        @include core-24;
+        margin: 10px 0 20px;
+      }
+    }
+    .large-numbers {
+      clear: both;
+      @extend %contain-floats;
+      @include media(tablet){
+        padding: 0 0 30px 0;
+        float: left;
+        width: 33.33%;
+      }
+
+      ol {
+        margin: 0;
+        padding: 0;
+        @include ie-lte(7){
+          width: 988px; // because 990px/4 is not a round number
+        }
+      }
+      li {
+        list-style: none;
+        margin: 20px 0;
+
+        a {
+          padding: 0 15px;
+          display: block;
+          text-decoration: none;
+          line-height: 1.25;
+        }
+        strong {
+          // Manually setting font-size rather than using the mixins size so we
+          // because the layout doesnt really work otherwise
+          font-size: 53px;
+          line-height: (55 / 53);
+          font-weight: bold;
+          display: block;
+
+          @include media(desktop){
+            font-size: 80px;
+            line-height: (80 / 80);
+          }
+        }
+        &:first-child {
+          margin-top: 10px;
+        }
+      }
+    }
+    .departments-promo-sections {
+      @extend %contain-floats;
+      clear: both;
+      padding: 0;
+    }
+  }
+
+  .popular-content {
+    @extend %contain-floats;
+    margin-bottom: 60px;
+
+    .promo-image {
+      @include media(tablet){
+        width: 50%;
+      }
+      @include media(desktop){
+        width: 33.33%;
+      }
+
+      a.callout {
+        display: block;
+        background-color: $turquoise;
+        color: $white;
+        font-weight: bold;
+        text-decoration: none;
+        text-align: center;
+        margin-bottom: 15px;
+
+
+        p {
+          @include core-16;
+          font-weight:700;
+          padding-top: 1.25em;
+          padding-bottom: 1.25em;
+          margin-left: 2em;
+          margin-right: 2em;
+        }
+
+        span {
+          @include heading-48;
+          font-weight:700;
+          display: block;
+          margin: 0.25em 0 0.25em 0;
+          padding:0;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          @include media(desktop) {
+            @include core-36;
+            font-weight:700;
+            margin:0;
+          }
+        }
+      }
+    }
+
+
+    .most-active {
+      @include media(tablet){
+        width: 50%;
+        float: left;
+      }
+      @include media(desktop){
+        width: 33.33%;
+      }
+      h3 {
+        @include core-24;
+        font-weight: bold;
+        margin: 0;
+        padding: 0 0 5px;
+      }
+      .most-active-content {
+        margin: 0;
+        padding: 0 0 15px;
+      }
+      li {
+        list-style: none;
+        margin: 0;
+        padding: 5px 0 0;
+        @include core-19;
+        a {
+          font-weight: bold;
+        }
+        span {
+          display: inline-block;
+          min-width: 25px;
+        }
+      }
+    }
+  }
+}
