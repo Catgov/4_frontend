@@ -1,7 +1,9 @@
 # GOV.UK Frontend
 
-Application to serve mainstream formats, the homepage, and search vertical for
-the GOV.UK single domain.
+Add cat guidance
+
+
+Check your latest edits using Github.
 
 ## Live examples
 
@@ -19,7 +21,7 @@ the GOV.UK single domain.
 
 * https://www.gov.uk/search?q=cabinet+office (search results page)
 * https://www.gov.uk/ (homepage)
-* https://www.gov.uk/tour (tour of GOV.UK)
+* https://www.gov.uk/tour (video tour of GOV.UK)
 * https://www.gov.uk/help (help index page)
 * https://www.gov.uk/foreign-travel-advice (travel advice index page)
 
